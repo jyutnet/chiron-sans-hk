@@ -9,13 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/ExtraLight.css">
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Light.css">
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Regular.css">
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Medium.css">
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Bold.css">
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Heavy.css">
-    <link rel="stylesheet" href="fonts/aphrus-sans/stylesheet.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="js/font-loader.js"></script>
+
     <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -25,6 +21,14 @@
 <article class="container">
 
     <h2 id="changelog">更新紀錄</h2>
+
+    <h3>2.025 版 (2020/5/10)</h3>
+
+    <ul>
+        <li>
+            增加以下 38 字的修改字圖：<strong>㖸㗘㘛㜮㤉㧁㨑㪐㽎䁯䃗䇶䖙䠡䢍䢢䯋吂塠揬桊炣烌眡砛肨胮胿膁膎膭𠹷𡢃𤉙𤌍𥔱𦻐𨃩</strong>。
+        </li>
+    </ul>
 
     <h3>2.024 版 (2020/3/23)</h3>
 
@@ -39,10 +43,15 @@
 
     <ul>
         <li>
-            增加以下 78 字的修改字圖：<strong>㝎䍇偝僗匳妎姙姼媕媖媮媱嫛嫳嬐孏寥崟嶮廖戮扲揄梣檎瀏烴焌煒煺爁爟爣爦爨牏獳礝繆膝膠臙薟藜蘞蘦蟉襝謬踰轇醪鉠鉧銎鎏鏊鏖鑌钁隁隃霒霡霫霮霿靀骽麂黐鼹齌𢫏𤃬𩁹𩃬𩅰</strong>。
+            增加以下 78
+            字的修改字圖：<strong>㝎䍇偝僗匳妎姙姼媕媖媮媱嫛嫳嬐孏寥崟嶮廖戮扲揄梣檎瀏烴焌煒煺爁爟爣爦爨牏獳礝繆膝膠臙薟藜蘞蘦蟉襝謬踰轇醪鉠鉧銎鎏鏊鏖鑌钁隁隃霒霡霫霮霿靀骽麂黐鼹齌𢫏𤃬𩁹𩃬𩅰</strong>。
         </li>
         <li>
-            思源黑體 2.001 版包含 4 個位於中日韓統一表意文字擴展區 G、但因當時尚未定案而沒有為之編碼的字形。在思源黑體中，這些字元須透過 IDS  (Ideographic Description Sequences) 加上 OpenType 的 <em>ccmp</em> 功能取得。隨着 Unicode 13.0 於 2020/3/10 發表、這 4 字正式獲得 Unicode 碼位，因此將以下 4 字編碼：U+3106C 𱁬 (CID+61861)、U+30729 𰜩 (CID+61858)、U+30EDD 𰻝 (CID+61859)、U+30EDE 𰻞 (CID+61857)。將此 4 字編碼的動作顯然應該在思源黑體進行，所以這項更新本非昭源字體事務（而是等待思源黑體更新、再在本字體引入）。只是基於近月思源黑體開發方 Adobe 的人事變動，思源字體後續開發尚未明朗，因此暫在本字體處理（之前修正某些屬思源黑體原版的字形錯誤也是這個原因）。
+            思源黑體 2.001 版包含 4 個位於中日韓統一表意文字擴展區 G、但因當時尚未定案而沒有為之編碼的字形。在思源黑體中，這些字元須透過 IDS (Ideographic Description Sequences)
+            加上 OpenType 的 <em>ccmp</em> 功能取得。隨着 Unicode 13.0 於 2020/3/10 發表、這 4 字正式獲得 Unicode 碼位，因此將以下 4 字編碼：U+3106C 𱁬
+            (CID+61861)、U+30729 𰜩 (CID+61858)、U+30EDD 𰻝 (CID+61859)、U+30EDE 𰻞 (CID+61857)。將此 4
+            字編碼的動作顯然應該在思源黑體進行，所以這項更新本非昭源字體事務（而是等待思源黑體更新、再在本字體引入）。只是基於近月思源黑體開發方 Adobe
+            的人事變動，思源字體後續開發尚未明朗，因此暫在本字體處理（之前修正某些屬思源黑體原版的字形錯誤也是這個原因）。
         </li>
     </ul>
 
@@ -216,7 +225,13 @@
     </ul>
 
 </article>
-
+<script>
+    $(function () {
+        $.getJSON("meta.json", function (data) {
+            loadFontFromCDN(data['version']);
+        });
+    });
+</script>
 </body>
 
 </html>

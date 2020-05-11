@@ -15,15 +15,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/ExtraLight.css"/>
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Light.css"/>
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Regular.css"/>
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Medium.css"/>
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Bold.css"/>
-    <link rel="stylesheet" href="fonts/chiron-sans-hk/css/Heavy.css"/>
     <link rel="stylesheet" href="fonts/aphrus-sans/stylesheet.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+
     <script src="https://kit.fontawesome.com/dc9b582f81.js"></script>
+    <script src="js/font-loader.js"></script>
 </head>
 
 <body>
@@ -385,7 +381,7 @@
 
             <div class="download-row hide-until-meta-loaded">
                 <a class="btn btn-outline-primary btn-lg font-download-link"
-                   href="https://github.com/tamcy/chiron-sans-hk/archive/v2.019.zip"><i
+                   href="#"><i
                         class="fas fa-arrow-circle-down"></i> 下載
                     <small>｜ 版本 <span class="font-current-version"></span> (<span
                             class="font-release-date"></span>)<span class="d-none d-lg-inline d-xl-inline">‧基於思源黑體 <span
@@ -398,8 +394,8 @@
 
             <div class="mt-4 hide-until-meta-loaded small">
                 與思源黑體比較：
-                <a href="files/remapped-chars.pdf" target="_blank">更改對映字元對照表
-                    (<span class="remapped-chars-filesize"></span>)</a> | <a href="files/redesigned-chars.pdf"
+                <a class="remapped-chars-link" href="#" target="_blank">更改對映字元對照表
+                    (<span class="remapped-chars-filesize"></span>)</a> | <a class="redesigned-chars-link" href="#"
                                                                              target="_blank">重繪字元對照表
                 (<span class="redesigned-chars-filesize"></span>)</a> | <a href="#qna-char-additions">新增字元</a>
             </div>
@@ -468,7 +464,8 @@
 
     <div class="answer">
 
-        <p>網站開發人員如想使用昭源黑體作為網頁字型 webfont，除了下載檔案作自行託管 self-hosting 外，另一個選擇是使用 <a href="https://www.jsdelivr.com/">jsDelivr</a>
+        <p>網站開發人員如想使用昭源黑體作為網頁字型 webfont，除了下載檔案作自行託管 self-hosting 外，也可以使用 <a
+                href="https://www.jsdelivr.com/" target="_blank">jsDelivr</a>
             提供的免費 CDN 服務。只須複製下面載入有關字重 stylesheet 的 <code>&lt;link&gt;</code> 標籤到網頁，再指定 font-family 為 <code>Chiron Sans
                 HK
                 WS</code> 即可。</p>
@@ -504,7 +501,7 @@
                 刪除，就可以一直載入最新版本。不過，網頁字型的目錄結構在之後的版本可能會有變更，導致網站使用的字型突吿失效。因此仍建議指定版本，有新版本時再手動更新。
             </li>
             <li>由於 Normal 和 Regular 的字重數字均設定為 400，同一頁面不能同時使用這兩種字重（這做法與 Google Fonts 相同。Typekit 則將 Normal
-                設為 300，再將 Light 和 ExtraLight 字重遞減為 200 和 100。不過這恐怕會導致與其他英文字體配合使用時，字重 100-300 的視覺差異太太）。
+                設為 300，再將 Light 和 ExtraLight 字重遞減為 200 和 100。不過這恐怕會導致與其他英文字體配合使用時，字重 100-300 的視覺差異太大）。
             </li>
             <li>有關 webfont 收錄字數、範圍、格式等技術資訊，請參閱 <a href="https://github.com/tamcy/chiron-sans-hk/tree/master/build"
                                                   target="_blank">GitHub 專案頁 build/ 目錄中的 README 檔案</a>。
@@ -576,9 +573,9 @@
         </div>
 
         <p class="download-row text-center hide-until-meta-loaded">
-            <a href="files/remapped-chars.pdf" class="btn btn-lg btn-outline-secondary" target="_blank">更改對映字元對照表
+            <a href="#" class="btn btn-lg btn-outline-secondary remapped-chars-link" target="_blank">更改對映字元對照表
                 (<span class="remapped-chars-filesize"></span>)</a>
-            <a href="files/redesigned-chars.pdf" class="btn btn-lg btn-outline-secondary" target="_blank">重繪字元對照表
+            <a href="#" class="btn btn-lg btn-outline-secondary redesigned-chars-link" target="_blank">重繪字元對照表
                 (<span class="redesigned-chars-filesize"></span>)</a>
         </p>
 
@@ -611,7 +608,7 @@
         </p>
 
         <p class="download-row text-center hide-until-meta-loaded">
-            <a href="files/character-additions.pdf" class="btn btn-lg btn-outline-secondary" target="_blank">「昭源黑體」新增字元列表
+            <a href="#" class="btn btn-lg btn-outline-secondary new-chars-link" target="_blank">「昭源黑體」新增字元列表
                 (<span class="new-chars-filesize"></span>)</a>
         </p>
     </div>
@@ -729,15 +726,27 @@
             $('.font-upstream-version').text(data['upstream']);
             $('.font-release-date').text(data['date']);
             $('.remapped-chars-filesize').text(data['remap_chars']['pdf_size']);
+
             $('.new-chars-filesize').text(data['new_chars']['pdf_size']);
             $('.redesigned-chars-filesize').text(data['redesign_chars']['pdf_size']);
             $('.remapped-chars-count').text((data['remap_chars']['count']).toLocaleString());
+
             $('.new-chars-count').text((data['new_chars']['count'] - 3).toLocaleString());
+            $('.redesigned-chars-count').text((data['redesign_chars']['count']).toLocaleString());
+            $('.redesigned-glyphs-count').text((data['redesign_chars']['count'] * 7).toLocaleString());
+
+            $('.new-chars-link').attr('href', 'https://github.com/tamcy/chiron-sans-hk/releases/download/v@version/character-additions.pdf'.replace('@version', data['version']));
+            $('.redesigned-chars-link').attr('href', 'https://github.com/tamcy/chiron-sans-hk/releases/download/v@version/redesigned-chars.pdf'.replace('@version', data['version']));
+            $('.remapped-chars-link').attr('href', 'https://github.com/tamcy/chiron-sans-hk/releases/download/v@version/remapped-chars.pdf'.replace('@version', data['version']));
+
             $('.redesigned-chars-count').text((data['redesign_chars']['count']).toLocaleString());
             $('.redesigned-glyphs-count').text((data['redesign_chars']['count'] * 7).toLocaleString());
 
             $('.fa-loading').hide();
             $('.hide-until-meta-loaded').show();
+
+            //
+            loadFontFromCDN(data['version']);
         });
     })
 });</script>
