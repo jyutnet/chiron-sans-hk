@@ -124,8 +124,8 @@
 
 <article class="container">
 
-    <div class="card p-4">
-        <div id="preview-weight-selector" class="btn-group" role="group" aria-label="Basic example">
+    <div class="card p-4 font-preview-box">
+        <div id="preview-weight-selector" class="btn-group weight-buttons" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-light" data-weight="100"><span class="d-lg-none">EL</span><span
                     class="d-none d-lg-block">ExtraLight</span></button>
             <button type="button" class="btn btn-light" data-weight="300"><span class="d-lg-none">L</span><span
@@ -139,9 +139,9 @@
             <button type="button" class="btn btn-light" data-weight="900"><span class="d-lg-none">H</span><span
                     class="d-none d-lg-block">Heavy</span></button>
         </div>
-        <input id="preview-size-selector" class="custom-range" type="range" min="24" max="120" value="36">
+        <input class="custom-range" type="range" min="24" max="120" value="36">
         <div class="preview">
-            <div id="preview-content" contenteditable="true" class="lead"
+            <div contenteditable="true" class="lead"
                  style="font-family: 'Chiron Sans HK WS'; font-weight: 400 ; font-size: 36px; text-align: left;">
                 昭源黑體是一款以思源黑體香港版為基礎、採現代筆形風格、平衡標準字形和印刷體慣用筆形的免費開源黑體字型。<br/>你可以在這個測試區輸入文字，並利用上面的工具切換不同字重和大小，預覽昭源黑體的顯示效果。試試看吧！
             </div>
@@ -582,17 +582,17 @@
 
     </div>
 
-    <a class="anchor" id="qna-char-additions"></a>
+    <a class="anchor" id="qna-char-hkchars"></a>
 
     <div class="question h4 text-danger mt-4">
-        <i class="fal fa-lightbulb-on"></i> 昭源黑體有哪些原版思源黑體所無的新造字？
+        <i class="fal fa-lightbulb-on"></i> 昭源黑體支援粵語字嗎？
     </div>
 
     <div class="answer">
-
-        <p>
-            昭源黑體有 3 個香港常見但思源黑體不收的「穩定增收字」：
-        </p>
+        <p>思源黑體本身完整覆蓋 HKSCS
+            字集，收字甚至比一般商業字體更完善。「嘅、嘢、咗、啲、邨、埗、鰂」一類字固然有收，連好像「𡃁、𨋢、𠵱、𠱁」這類在個別商業字體會出現缺字的粵語用字亦有收錄。這些字在昭源黑體自然全數保留。另外，昭源黑體還有 3
+            個香港常見但不在 HKSCS
+            字集之內，因此思源黑體不收的「新造字」：</p>
 
         <ul>
             <li><strong>𡂫</strong> (U+210AB)，屬 CJK Unified Ideographs Extension B 字元，在 2.022 版新增。</li>
@@ -600,11 +600,91 @@
             <li><strong>𭉝</strong> (U+2D25D)，屬 CJK Unified Ideographs Extension F 字元，在 2.019 版新增。</li>
         </ul>
 
+        <p>長遠來説，我認為這 3 字應該納入香港增補字符集（我已向有關方面提交增收申請）、並得到思源黑體正式支援。目前，昭源黑體是少數支援這三個粵語字的字體。</p>
+
+        <div class="card p-4 mb-3 font-preview-box">
+            <div class="btn-group weight-buttons" role="group">
+                <button type="button" class="btn btn-light" data-weight="100"><span class="d-lg-none">EL</span><span
+                        class="d-none d-lg-block">ExtraLight</span></button>
+                <button type="button" class="btn btn-light" data-weight="300"><span class="d-lg-none">L</span><span
+                        class="d-none d-lg-block">Light</span></button>
+                <button type="button" class="btn btn-primary" data-weight="400"><span class="d-lg-none">R</span><span
+                        class="d-none d-lg-block">Regular</span></button>
+                <button type="button" class="btn btn-light" data-weight="500"><span class="d-lg-none">M</span><span
+                        class="d-none d-lg-block">Medium</span></button>
+                <button type="button" class="btn btn-light" data-weight="700"><span class="d-lg-none">B</span><span
+                        class="d-none d-lg-block">Bold</span></button>
+                <button type="button" class="btn btn-light" data-weight="900"><span class="d-lg-none">H</span><span
+                        class="d-none d-lg-block">Heavy</span></button>
+            </div>
+            <input class="custom-range" type="range" min="24" max="120" value="36">
+            <div class="preview">
+                <div contenteditable="true" class="lead"
+                     style="font-family: 'Chiron Sans HK WS'; font-weight: 400 ; font-size: 36px; text-align: left;">
+                    𡃁仔 搭𨋢 𠵱家 笑𫬷𫬷 𭉝𭉝聲 𡂫𡂫聲 生銹 𠝹刀 買餸 𤷪𤺧 𠱁人
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <a class="anchor" id="qna-char-additions"></a>
+
+    <div class="question h4 text-danger mt-4">
+        <i class="fal fa-lightbulb-on"></i> 昭源黑體還有哪些新造字？
+    </div>
+
+    <div class="answer">
+
         <p>
-            這三字不在香港增補字符集之內，所以思源黑體沒有支援（我已向有關方面提交增收申請，假如成功便可再向思源黑體提交新增請求）。除此之外，昭源黑體還有 <span
+            連同上面提過的「𡂫、𫬷、𭉝」，昭源黑體目前共有 <span
                 class="new-chars-count"></span>
-            個思源黑體沒有的收字。這些新收字來源不一，有些是因個人需要而做，有些是在網上看到而試做，又有些是受委託製作（目前本字體不接受個別加字要求，除非該字是如「𡂫、𫬷、𭉝」一類香港常用字）。與前述三字不同的是，這些不屬香港常用字，亦暫未算是昭源黑體的<u>穩定</u>新收字，也就是説其收錄情況在之後版本可能會有改動，其增刪也不會另外説明。如有興趣，可循下方連結下載新增字元列表的
-            PDF 檔案參考。
+            個思源黑體沒有的收字。這些新收字使昭源黑體可以應付以下網站的使用（僅限字頭）：
+        </p>
+
+        <ul>
+            <li><a href="http://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/" target="_blank">漢語多功能字庫</a></li>
+            <li><a href="https://jyut.net/" target="_blank">粵音資料集叢</a></li>
+            <li><a href="http://words.hk/" target="_blank">粵典</a></li>
+        </ul>
+
+        <p>此外，昭源黑體的新造字也包括以下網頁所載的台、客語用字：</p>
+
+        <ul>
+            <li>
+                <a href="https://docs.google.com/spreadsheets/d/1RPN_4sVAYlHaMchak1wwf2dpNKRcLil7WFHkB1ZGVuE/edit#gid=1018353923"
+                   target="_blank">「再會豆腐字」網站的本土語言外字表</a></li>
+            <li><a href="https://github.com/adobe-fonts/source-han-sans/issues/222">思源黑體 GitHub 頁面中有關台/客語字的增收建議</a></li>
+        </ul>
+
+        <p>以下是一些新造字示範：</p>
+
+        <div class="card p-4 mb-3 font-preview-box">
+            <div class="btn-group weight-buttons" role="group">
+                <button type="button" class="btn btn-light" data-weight="100"><span class="d-lg-none">EL</span><span
+                        class="d-none d-lg-block">ExtraLight</span></button>
+                <button type="button" class="btn btn-light" data-weight="300"><span class="d-lg-none">L</span><span
+                        class="d-none d-lg-block">Light</span></button>
+                <button type="button" class="btn btn-primary" data-weight="400"><span class="d-lg-none">R</span><span
+                        class="d-none d-lg-block">Regular</span></button>
+                <button type="button" class="btn btn-light" data-weight="500"><span class="d-lg-none">M</span><span
+                        class="d-none d-lg-block">Medium</span></button>
+                <button type="button" class="btn btn-light" data-weight="700"><span class="d-lg-none">B</span><span
+                        class="d-none d-lg-block">Bold</span></button>
+                <button type="button" class="btn btn-light" data-weight="900"><span class="d-lg-none">H</span><span
+                        class="d-none d-lg-block">Heavy</span></button>
+            </div>
+            <input class="custom-range" type="range" min="24" max="120" value="36">
+            <div class="preview">
+                <div contenteditable="true" class="lead"
+                     style="font-family: 'Chiron Sans HK WS'; font-weight: 400 ; font-size: 36px; text-align: left;">
+                    𤔲𨈓𪏆𬧯𩧐𤖯𪜶𣁳𩨑𤑾𦟪𰣻𢯾𤘅𥌚
+                </div>
+            </div>
+        </div>
+
+        <p>
+            不過，由於這些網站/字表的字會不時更新，我不能保證將來會繼續支援這些網站的用字。而這些字的增刪也不會另外説明。使用者如有興趣，可循下方連結下載新增字元列表的 PDF 檔案參考。最後，補字並非本字體之製作目的（這項工作應該由思源的開發者 Google/Adobe 完成），所以除非是像「𡂫、𫬷、𭉝」一類在香港常見常用的「漏網之魚」，恕不接受加字申請。
         </p>
 
         <p class="download-row text-center hide-until-meta-loaded">
@@ -703,20 +783,24 @@
         crossorigin="anonymous"></script>
 
 <script>$(function () {
-    $('#preview-size-selector').on('input', function (e) {
-        $('#preview-content').css('font-size', $(this).val() + "px");
-    });
+    $('.font-preview-box').each(function (_) {
+        var $box = $(this);
+        var $content = $('.preview > div', $box);
+        $('input[type=range]', $box).on('input', function (e) {
+            $content.css('font-size', $(this).val() + "px");
+        });
 
-    $('#preview-weight-selector button').on('mouseover', function (e) {
-        $('#preview-weight-selector button').removeClass('btn-primary').addClass('btn-light');
-        $(this).removeClass('btn-light').addClass('btn-primary');
-        $('#preview-content').css('font-weight', $(this).data('weight'));
-    });
+        $('.weight-buttons button', $box).on('mouseover', function (e) {
+            $('.weight-buttons button', $box).removeClass('btn-primary').addClass('btn-light');
+            $(this).removeClass('btn-light').addClass('btn-primary');
+            $content.css('font-weight', $(this).data('weight'));
+        });
 
-    $('#preview-content').on('paste', function (e) {
-        e.preventDefault();
-        var text = (e.originalEvent || e).clipboardData.getData('text/plain');
-        document.execCommand("insertHTML", false, text);
+        $content.on('paste', function (e) {
+            e.preventDefault();
+            var text = (e.originalEvent || e).clipboardData.getData('text/plain');
+            document.execCommand("insertHTML", false, text);
+        });
     });
 
     $(document).ready(function () {
@@ -731,7 +815,7 @@
             $('.redesigned-chars-filesize').text(data['redesign_chars']['pdf_size']);
             $('.remapped-chars-count').text((data['remap_chars']['count']).toLocaleString());
 
-            $('.new-chars-count').text((data['new_chars']['count'] - 3).toLocaleString());
+            $('.new-chars-count').text((data['new_chars']['count']).toLocaleString());
             $('.redesigned-chars-count').text((data['redesign_chars']['count']).toLocaleString());
             $('.redesigned-glyphs-count').text((data['redesign_chars']['count'] * 7).toLocaleString());
 
